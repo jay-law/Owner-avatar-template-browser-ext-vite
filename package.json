@@ -1,0 +1,19 @@
+{
+  "name": "template-browser-ext-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:manifest:firefox": "cp src/manifest.json build/manifest.json",
+    "build:content": "vite build --config vite.content.config.ts",
+    "build:main": "vite build",
+    "build": "npm run build:main --emptyOutDir && npm run build:content && npm run build:manifest:firefox",
+    "start:firefox": "web-ext run --browser-console --source-dir ./build/"
+  },
+  "devDependencies": {
+    "glob": "^10.3.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "web-ext": "^7.6.2"
+  }
+}
